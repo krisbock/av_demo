@@ -1,0 +1,29 @@
+bundle:
+  name: av-databricks-fabric-ai-demo
+
+include:
+  - resources/*.yml
+
+artifacts:
+  default:
+    type: whl
+    build: uv build
+
+variables:
+  catalog:
+    default: av_demo
+  raw_catalog:
+    default: replace_with_onelake_foreign_catalog
+  raw_schema:
+    default: raw_av
+  as_of_timestamp_utc:
+    default: "2026-09-15T12:00:00Z"
+
+targets:
+  dev:
+    default: true
+    mode: development
+  demo:
+    mode: production
+    workspace:
+      root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}

@@ -1,0 +1,14 @@
+rules:
+  - rule_id: DQ-001
+    rule_name: Unique CAD event identifier
+    dataset_name: cad_events
+    severity: HIGH
+    condition: event_id must be unique
+    action: deduplicate_and_quarantine
+  - rule_id: DQ-002
+    rule_name: Handover completion follows arrival
+    dataset_name: hospital_arrivals
+    severity: CRITICAL
+    condition: handover_complete_timestamp_utc >= arrival_timestamp_utc
+    action: quarantine
+

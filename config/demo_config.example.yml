@@ -1,0 +1,12 @@
+catalog: av_demo
+raw_catalog: replace_with_onelake_foreign_catalog
+raw_schema: raw_av
+demo_date: "2026-09-15"
+as_of_timestamp_utc: "2026-09-15T12:00:00+00:00"
+random_seed: 42
+case_count: 200
+unit_count: 10
+data_profile: with_quality_issues
+generated_data_path: generated/raw_av
+demo_environment: true
+

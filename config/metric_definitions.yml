@@ -1,0 +1,26 @@
+metrics:
+  active_cases:
+    display_name: Active Cases
+    definition: Cases created on or before the as-of timestamp without a clear event on or before that timestamp.
+    grain: One aggregate value for the selected reporting window.
+  completed_cases:
+    display_name: Completed Cases
+    definition: Cases with a clear event on or before the as-of timestamp.
+    grain: One aggregate value for the selected reporting window.
+  average_mobilisation_minutes:
+    display_name: Average Mobilisation Minutes
+    definition: Average minutes from CASE_CREATED to UNIT_DISPATCHED for valid cases.
+    grain: One aggregate value for the selected reporting window.
+  average_hospital_handover_minutes:
+    display_name: Average Hospital Handover Minutes
+    definition: Average minutes from hospital arrival to handover completion for valid handovers.
+    grain: One aggregate value for the selected reporting window.
+  handovers_over_40_minutes:
+    display_name: Handovers Over 40 Minutes
+    definition: Count of valid hospital handovers lasting strictly more than 40 minutes.
+    grain: One aggregate value for the selected reporting window.
+  data_quality_exceptions:
+    display_name: Data Quality Exceptions
+    definition: Count of failed configured data-quality rules in the selected pipeline run.
+    grain: One aggregate value per pipeline run.
+

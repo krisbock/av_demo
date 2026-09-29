@@ -1,0 +1,19 @@
+resources:
+  pipelines:
+    av_demo_pipeline:
+      name: av-demo-pipeline
+      catalog: ${var.catalog}
+      schema: gold
+      serverless: true
+      photon: true
+      channel: CURRENT
+      continuous: false
+      development: false
+      libraries:
+        - file:
+            path: ../pipelines/av_demo_pipeline.py
+      configuration:
+        av_demo.catalog: ${var.catalog}
+        av_demo.raw_catalog: ${var.raw_catalog}
+        av_demo.raw_schema: ${var.raw_schema}
+        av_demo.as_of_timestamp_utc: ${var.as_of_timestamp_utc}

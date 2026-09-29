@@ -1,0 +1,26 @@
+Active Cases =
+CALCULATE (
+    DISTINCTCOUNT ( fact_case[case_id] ),
+    KEEPFILTERS ( fact_case[active_flag] = TRUE () )
+)
+
+Completed Cases =
+CALCULATE (
+    DISTINCTCOUNT ( fact_case[case_id] ),
+    KEEPFILTERS ( fact_case[lifecycle_complete_flag] = TRUE () )
+)
+
+Average Mobilisation Minutes =
+AVERAGE ( fact_case[mobilisation_minutes] )
+
+Average Hospital Handover Minutes =
+AVERAGE ( fact_case[hospital_handover_minutes] )
+
+Handovers Over 40 Minutes =
+CALCULATE (
+    DISTINCTCOUNT ( fact_case[case_id] ),
+    KEEPFILTERS ( fact_case[hospital_handover_minutes] > 40 )
+)
+
+Data Quality Exceptions =
+MAX ( operational_metrics[data_quality_exceptions] )
